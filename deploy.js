@@ -1,12 +1,11 @@
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 const Web3 = require('web3');
 const { abi, evm } = require('./compile');
+require('dotenv').config();
 
 const provider = new HDWalletProvider(
-  'YOUR_MNEMONIC',
-  // remember to change this to your own phrase!
-  'YOUR_INFURA_URL'
-  // remember to change this to your own endpoint!
+    process.env.MNEMONIC,
+    process.env.INFURA_URL
 );
 
 const web3 = new Web3(provider);
